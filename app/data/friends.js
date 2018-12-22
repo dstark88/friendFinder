@@ -1,7 +1,11 @@
 var path = require("path");
 
-var friendsArray = [
-
+var newFriends = [
+    {
+        name: "",
+        photo: "",
+        scores: [],
+    },
     {
         name: "Denise",
         photo: "https://topeassetsprod.blob.core.windows.net/editorial/import/images/pagefiles/596823057/thdenise3.jpg",
@@ -36,4 +40,4 @@ var friendsArray = [
     }
 ]
 
-module.exports = friendsArray;
+module.exports = newFriends;
