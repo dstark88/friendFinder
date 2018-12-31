@@ -1,12 +1,5 @@
-var path = require("path");
-
-var newFriends = [
-    {
-        name: "",
-        photo: "",
-        scores: [],
-    },
-    {
+var friends = [
+     {
         name: "Denise",
         photo: "https://topeassetsprod.blob.core.windows.net/editorial/import/images/pagefiles/596823057/thdenise3.jpg",
         scores: [
@@ -23,9 +16,9 @@ var newFriends = [
         ]
     },
     {
-        "name":"Ahmed",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-        "scores":[
+        name: "Ahmed",
+        photo :"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        scores: [
             5,
             1,
             4,
@@ -38,6 +31,6 @@ var newFriends = [
             1
         ]   
     }
-]
+];
 
-module.exports = newFriends;
+module.exports = friends;

@@ -25,22 +25,23 @@
                     <h3 class="panel-title"><h3><strong>Survey Questions</strong></h3></h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="/api/surveySubmit" method="post">
+                    <form role="form" action="/api/submit" method="post">
                         <div class="form-group">
                             <label for="name"><h3><strong>Name</strong></h3></label>
                             <input type="text" class="form-control" id="name">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="photo"><h3><strong>Photo</strong></h3></label>
                             <label class="control-label">Select File</label>
                             <input id="photo" type="file" class="file">
-                        </div>
+                        </div> -->
                         <div class="btn-group">
                             <h3>
                             <strong>Question 1</strong>
                             </h3>
                             <h4> Your mind is always buzzing with unexplored ideas and plans. </h4>
                             <select id="q1">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -48,12 +49,13 @@
                                 <option value="5">5 (Strongly agree)</option>
                             </select>
                         </div>
-                        <h3> 
+                        <!-- <h3> 
                           <strong>Question 2</strong>
                         </h3>
                         <h4> Generally speaking, you rely more on your experience than your imagination. </h4>
                         <div class="btn-group">
                             <select id="q2">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -67,6 +69,7 @@
                         <h4> You find it easy to stay relaxed and focused even when there is some pressure. </h4>
                         <div class="btn-group">
                             <select id="q3">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -80,6 +83,7 @@
                         <h4> You rarely do something just out of sheer curiosity. </h4>
                         <div class="btn-group">
                             <select id="q4">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -93,6 +97,7 @@
                         <h4> People can rarely upset you. </h4>
                         <div class="btn-group">
                             <select id="q5">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -106,6 +111,7 @@
                         <h4> It is often difficult for you to relate to other people’s feelings.</h4>
                         <div class="btn-group">
                             <select id="q6">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -119,6 +125,7 @@
                         <h4> In a discussion, truth should be more important than people’s sensitivities.</h4>
                         <div class="btn-group">
                             <select id="q7">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -132,6 +139,7 @@
                         <h4> You rarely get carried away by fantasies and ideas. </h4>
                         <div class="btn-group">
                             <select id="q8">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -145,6 +153,7 @@
                         <h4> You think that everyone’s views should be respected regardless of whether they are supported by facts or not. </h4>
                         <div class="btn-group">
                             <select id="q9">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -158,13 +167,14 @@
                         <h4> You feel more energetic after spending time with a group of people.</h4>
                         <div class="btn-group">
                             <select id="q10">
+                                <option>Please select an option.</option>
                                 <option value="1">1(Strongly disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5 (Strongly agree)</option>
                             </select>
-                        </div>
+                        </div> -->
                         <!-- <div>
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <button type="submit" class="btn btn-primary submit" data-toggle="modal" id="submitButton">Submit</button>
@@ -187,11 +197,14 @@
                             </div>
                         </div> -->
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
-                        <i class="fa fa-check-circle" aria-hidden="true">
-                        </i>
-                        Submit
-                    </button>
+                    <div>
+                    <a href="/submit">
+                        
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+                            Submit 
+                        </button>
+                    </a>
+                    </div>
                 </form>
               
             </div>
@@ -211,30 +224,49 @@
     </footer>
 </body>
 <script type="text/javascript">
-  $("#submitButton").on("click", function() {
-      event.preventDefault();
+
+  $("#submit").on("click", function(event) {
+   
+      console.log("button clicked");
+    //   event.preventDefault();
       var newFriend = {
           name: $("#name").val().trim(),
-          photo: $("#photo").val().trim(),
+        //   photo: $("#photo").val().trim(),
           scores: [
               $("#q1").val().trim(),
-              $("#q2").val().trim(),
-              $("#q3").val().trim(),
-              $("#q4").val().trim(),
-              $("#q5").val().trim(),
-              $("#q6").val().trim(),
-              $("#q7").val().trim(),
-              $("#q8").val().trim(),
-              $("#q9").val().trim(),
-              $("#q10").val().trim()
+            //   $("#q2").val().trim(),
+            //   $("#q3").val().trim(),
+            //   $("#q4").val().trim(),
+            //   $("#q5").val().trim(),
+            //   $("#q6").val().trim(),
+            //   $("#q7").val().trim(),
+            //   $("#q8").val().trim(),
+            //   $("#q9").val().trim(),
+            //   $("#q10").val().trim()
           ]
       };
-      console.log(newFriend);
-      $.post("/api/surveySubmit", newFriend,
+      console.log(newFriend, "newFriend survey html");
+      $.post("/api/submit", newFriend,
           function(data) {
-              $("#name").text(data.name);
-              $("#photo").attr("src", data.photo);
+            $("#name").text(newFriend.name);
+            console.log(newFriend.name, "hope we have a new friend")
+            //   $("#photo").attr("src", data.photo);
+            $("#name").val("");
+            // $("#photo").val("");
+            $("#q1").val("");
+            // $("#q2").val("");
+            // $("#q3").val("");
+            // $("#q4").val("");
+            // $("#q5").val("");
+            // $("#q6").val("");
+            // $("#g7").val("");
+            // $("#g8").val("");
+            // $("#g9").val("");
+            // $("#g10").val("");
+            window.location.href ="/submit";
           });
+          
+        //   alert (newFriend.name + " your new friend is");
   });
   </script>
 
