@@ -11,11 +11,45 @@
 </head>
 
 <body>
-    Your new best friend is!
+    <div class="container">
+        <div class="jumbotron">
+            <h1><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder</h1>
+            <hr>
+                <div id="match">
+                    <h2><strong></strong></h2>
+                </div>
+                <div id="photo">
+                    <h2><strong> </strong></h2>
+                </div>
+            <br>
+            <div>
+            <a href="/"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span>Try again!</h4></button></a>
+            </div>
+        </div>
+    </div>
+        
+    
 <footer class="footer">
     <div class="container">
         <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/dstark88/friendFinder">GitHub Repo</a></p>
     </div>
 </footer>
+
 </body>
+
+<script type="text/javascript">
+
+    window.addEventListener("load", function(){
+        $.get("/api/friendMatch")
+        .then(function(data) {
+            console.log(data);
+
+            $("#match").html(data.userName + " <strong>your new friend is... " + data.match.name + "</strong>");
+            $("#photo").html(`<img src="${data.match.photo}"/>`);
+           
+        })
+    })
+
+</script>
+
 </html>

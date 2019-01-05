@@ -30,11 +30,12 @@
                             <label for="name"><h3><strong>Name</strong></h3></label>
                             <input type="text" class="form-control" id="name">
                         </div>
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label for="photo"><h3><strong>Photo</strong></h3></label>
-                            <label class="control-label">Select File</label>
+                            <input type="text" id="photo" class="form-control" required="">
+                            <!-- <label class="control-label">Select File</label> -->
                             <input id="photo" type="file" class="file">
-                        </div> -->
+                        </div>
                         <div class="btn-group">
                             <h3>
                             <strong>Question 1</strong>
@@ -226,12 +227,11 @@
 <script type="text/javascript">
 
   $("#submit").on("click", function(event) {
-   
-      console.log("button clicked");
-    //   event.preventDefault();
+
+      event.preventDefault();
       var newFriend = {
           name: $("#name").val().trim(),
-        //   photo: $("#photo").val().trim(),
+          photo: $("#photo").val().trim(),
           scores: [
               $("#q1").val().trim(),
             //   $("#q2").val().trim(),
@@ -245,24 +245,14 @@
             //   $("#q10").val().trim()
           ]
       };
+
       console.log(newFriend, "newFriend survey html");
       $.post("/api/submit", newFriend,
           function(data) {
             $("#name").text(newFriend.name);
             console.log(newFriend.name, "hope we have a new friend")
-            //   $("#photo").attr("src", data.photo);
-            $("#name").val("");
-            // $("#photo").val("");
-            $("#q1").val("");
-            // $("#q2").val("");
-            // $("#q3").val("");
-            // $("#q4").val("");
-            // $("#q5").val("");
-            // $("#q6").val("");
-            // $("#g7").val("");
-            // $("#g8").val("");
-            // $("#g9").val("");
-            // $("#g10").val("");
+            $("#photo").attr("src", data.photo);
+
             window.location.href ="/submit";
           });
           

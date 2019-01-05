@@ -1,5 +1,8 @@
 
 var newFriends = require("../data/newFriends.js");
+var matchIndex;
+var user;
+// var userPhoto;
 
 module.exports = function(app) {
     app.get("/api/friends", function(req, res){
@@ -19,31 +22,44 @@ module.exports = function(app) {
    res.json(friends);
    });
 
+   app.get("/api/friendMatch", function(req,res) {
+       var userInfo = {
+           userName: user,
+           match: friends[matchIndex],
+        //    photo: userPhoto,
+       }
+       res.json(userInfo);
+       console.log("/friends[matchIndex] hit")
+   })
+
    app.post("/api/friends", function(req,res) {
     var friend = req.body;
-    
-    //    console.log(req.body);
        res.send(friend);
    });
 
     app.post("/api/submit", function(req,res) {
-
-    friends.push(req.body);
-   
-    //    console.log(req.body);
-       
+        if (!req.body) {
+            return;
+        }
 
     var friend = req.body;
-    var friendsArray =[];
 
-    //     for (var i = 0; i < friendsArray; i++){
-    //   var scoresDiff=0;
+    var closeScoreIndex = 0; 
+    user = req.body.name;
 
-    //   for (var j = 0; j < friend.length; j++){
-    //      scoresDiff += (Math.abs(parseInt(friends[i].scores[j])-parseInt(friend[j])));
-    //   }
-    //   friend.push(scoresDiff); 
-    //  }
-     res.send(friends);
+    for (var i = 0; i < friends.length; i++){ 
+        var scoreDiff = Math.abs(parseInt(friends[i].scores) - parseInt(friend.scores));
+
+        if (scoreDiff < friends[closeScoreIndex].scores) {
+            closeScoreIndex = i;
+            matchIndex = i;
+        } 
+        if (scoreDiff == 0) {
+            break;
+        }
+    }
+    console.log(friends[closeScoreIndex], "getting the close score index");
+    friends.push(req.body);
+    res.send(friends);
    });
 };
