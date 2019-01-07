@@ -1,6 +1,5 @@
 var path = require("path");
 
-
 module.exports = function(app) {
     // console.log(app, "app");
    
@@ -18,4 +17,10 @@ module.exports = function(app) {
         console.log("/submit hit");
         res.sendFile(path.join(__dirname, "/../public/submit.html"));
     });
+
+    // app.get("*", function(req, res) {
+    //     console.log("catch all");
+    //     res.sendFile(path.join(__dirname, "/../public/home.html"))
+    // });
+
 }

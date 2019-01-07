@@ -12,7 +12,7 @@
 
 <body>
   <div class="container">
-      <center>
+
       <div class="jumbotron">
         <h1><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder Survey</h1>
         <hr>
@@ -24,6 +24,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title"><h3><strong>Survey Questions</strong></h3></h3>
                 </div>
+            </center>
                 <div class="panel-body">
                     <form role="form" action="/api/submit" method="post">
                         <div class="form-group">
@@ -34,7 +35,7 @@
                             <label for="photo"><h3><strong>Photo</strong></h3></label>
                             <input type="text" id="photo" class="form-control" required="">
                             <!-- <label class="control-label">Select File</label> -->
-                            <input id="photo" type="file" class="file">
+                            <!-- <input id="photo" type="file" class="file"> -->
                         </div>
                         <div class="btn-group">
                             <h3>
@@ -50,7 +51,7 @@
                                 <option value="5">5 (Strongly agree)</option>
                             </select>
                         </div>
-                        <!-- <h3> 
+                        <h3> 
                           <strong>Question 2</strong>
                         </h3>
                         <h4> Generally speaking, you rely more on your experience than your imagination. </h4>
@@ -175,28 +176,8 @@
                                 <option value="4">4</option>
                                 <option value="5">5 (Strongly agree)</option>
                             </select>
-                        </div> -->
-                        <!-- <div>
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <button type="submit" class="btn btn-primary submit" data-toggle="modal" id="submitButton">Submit</button>
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Best Match</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+                        </div> 
+                    
                 </div>
                     <div>
                     <a href="/submit">
@@ -207,16 +188,11 @@
                     </a>
                     </div>
                 </form>
-              
             </div>
-            
         </div>
-     
     </div>
-    
     </div>
 
-</center>
   </div>
     <footer class="footer">
         <div class="container">
@@ -234,15 +210,15 @@
           photo: $("#photo").val().trim(),
           scores: [
               $("#q1").val().trim(),
-            //   $("#q2").val().trim(),
-            //   $("#q3").val().trim(),
-            //   $("#q4").val().trim(),
-            //   $("#q5").val().trim(),
-            //   $("#q6").val().trim(),
-            //   $("#q7").val().trim(),
-            //   $("#q8").val().trim(),
-            //   $("#q9").val().trim(),
-            //   $("#q10").val().trim()
+              $("#q2").val().trim(),
+              $("#q3").val().trim(),
+              $("#q4").val().trim(),
+              $("#q5").val().trim(),
+              $("#q6").val().trim(),
+              $("#q7").val().trim(),
+              $("#q8").val().trim(),
+              $("#q9").val().trim(),
+              $("#q10").val().trim(),
           ]
       };
 

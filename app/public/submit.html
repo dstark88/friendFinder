@@ -42,9 +42,10 @@
     window.addEventListener("load", function(){
         $.get("/api/friendMatch")
         .then(function(data) {
-            console.log(data);
+            console.log(data, "data");
 
             $("#match").html(data.userName + " <strong>your new friend is... " + data.match.name + "</strong>");
+            // $("#photo").html(`<img src="${data.photo}"/>`);
             $("#photo").html(`<img src="${data.match.photo}"/>`);
            
         })
