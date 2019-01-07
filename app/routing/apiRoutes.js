@@ -2,6 +2,7 @@ var friends = require("../data/friends");
 var matchIndex;
 var user;
 // var userPhoto;
+var photo;
 
 module.exports = function(app) {
     app.get("/api/friends", function(req, res){
@@ -16,12 +17,13 @@ module.exports = function(app) {
     app.get("/api/friendMatch", function(req,res) {
        var userInfo = {
            userName: user,
-        //    userPhoto: photo,
+           userPhoto: photo,
            match: friends[matchIndex],
         //    photo: userPhoto,
        }
         res.json(userInfo);
-        console.log("/friends[matchIndex] hit")
+        console.log(friends[matchIndex], "friends match index");
+        console.log(user,"user")
     })
 
     app.post("/api/friends", function(req,res) {

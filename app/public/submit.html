@@ -15,12 +15,13 @@
         <div class="jumbotron">
             <h1><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder</h1>
             <hr>
-                <div id="match">
-                    <h2><strong></strong></h2>
+                <h3><div id="match">
+                </div>
+                <br>
+                <div id="userPhoto">
                 </div>
                 <div id="photo">
-                    <h2><strong> </strong></h2>
-                </div>
+                </div></h3>
             <br>
             <div>
             <a href="/"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span>Try again!</h4></button></a>
@@ -43,9 +44,12 @@
         $.get("/api/friendMatch")
         .then(function(data) {
             console.log(data, "data");
+            // console.log(newFriend, "newfriend");
+            console.log(data.userPhoto, "userphoto");
+            console.log(data.userName, "username");
 
             $("#match").html(data.userName + " <strong>your new friend is... " + data.match.name + "</strong>");
-            // $("#photo").html(`<img src="${data.photo}"/>`);
+            $("#userPhoto").html(`<img src="${data.userName.userPhoto}"/>`);
             $("#photo").html(`<img src="${data.match.photo}"/>`);
            
         })
