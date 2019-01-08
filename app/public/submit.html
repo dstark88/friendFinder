@@ -44,12 +44,11 @@
         $.get("/api/friendMatch")
         .then(function(data) {
             console.log(data, "data");
-            // console.log(newFriend, "newfriend");
-            console.log(data.userPhoto, "userphoto");
-            console.log(data.userName, "username");
+            // console.log(data.userPhoto, "userphoto");
+            // console.log(data.userName, "username");
 
             $("#match").html(data.userName + " <strong>your new friend is... " + data.match.name + "</strong>");
-            $("#userPhoto").html(`<img src="${data.userName.userPhoto}"/>`);
+            // $("#userPhoto").html(`<img src="${data.userName.userPhoto}"/>`);
             $("#photo").html(`<img src="${data.match.photo}"/>`);
            
         })
